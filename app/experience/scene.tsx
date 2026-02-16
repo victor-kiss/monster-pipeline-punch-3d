@@ -19,7 +19,7 @@ export default function MonsterScene() {
      */
     <Canvas
       camera={{ position: [-3, -Math.PI / 2.5, 6], fov: 75 }}
-      className="w-full h-full"
+      className="w-full h-full p-4 md:p-0"
       style={{ touchAction: "pan-y " }}
       // dpr: Device Pixel Ratio. Limitar a 2 evita que o celular tente renderizar
       // em resoluções absurdas (como telas Retina), economizando GPU.
