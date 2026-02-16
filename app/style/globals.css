@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+body{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--font-teko),sans-serif;
+}
+
+.teko-font{
+  font-family: var(--font-teko),sans-serif;
+}
+
+/* Custom Scrollbar for Chrome, Safari and Edge */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #202020; /* Cor do fundo da página */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fd2c60;
+  border-radius: 10px;
+  border: 2px solid #202020; /* Cria um respiro em volta da barra */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffa569; 
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fd2c60 #202020;
+}
+
+canvas {
+  touch-action: pan-y !important;
+}
