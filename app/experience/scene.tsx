@@ -59,11 +59,13 @@ export default function MonsterScene() {
         azimuth={[-Math.PI / 2, Math.PI / 2]}
       >
         {/* Center: Centraliza o modelo 3D automaticamente dentro do grupo de controle */}
-        <Suspense fallback={null}>
+    
           <Center>
-             <MonsterPipeline scale={0.2}/>
-          </Center>
-        </Suspense>
+            <Suspense fallback={null}>
+               <MonsterPipeline scale={0.2}/>
+           </Suspense>
+        </Center>
+    
       </PresentationControls>
 
       {/* Environment: Adiciona um mapa de reflexo baseado em um ambiente de cidade, 
