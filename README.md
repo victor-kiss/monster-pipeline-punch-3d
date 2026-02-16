@@ -1,6 +1,3 @@
-Aqui está uma proposta completa e profissional para o seu `README.md`, focada em destacar o aspecto técnico e visual do projeto.
-
----
 
 # 🥤 Monster Energy - Pipeline Punch 3D
 
