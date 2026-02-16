@@ -1,6 +1,8 @@
 
 # 🥤 Monster Energy - Pipeline Punch 3D
 
+![Banner do Projeto](./public/thumb.png)
+
 Uma landing page imersiva e de alta performance desenvolvida para proporcionar uma experiência visual interativa em torno do energético **Monster Pipeline Punch**. O projeto utiliza tecnologias de ponta em renderização 3D web para criar uma vitrine digital realista.
 
 ## ✨ Destaques do Projeto
