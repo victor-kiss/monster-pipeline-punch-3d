@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="w-full h-auto md:h-screen flex items-center justify-center relative select-none ">
+    <main className="w-full h-auto md:h-screen flex items-center justify-center relative select-none isolate bg-[#202020] text-gray-200 ">
 
       <div className="absolute top-0 w-full h-full md:h-screen bg-gradient-to-t from-[#FF5E85] via-[#4a2b32] via-20% to-[#202020] to-35% -z-10"></div>
     
@@ -18,7 +18,7 @@ export default function Home() {
                 Monster Energy Juice
               </span>
               <br />
-              <span className="bg-linear-to-b from-[#fd5881] to-[#ffa569] bg-clip-text text-transparent inline-block">
+              <span className="bg-gradient-to-b from-[#fd5881] to-[#ffa569] bg-clip-text text-transparent inline-block">
                 Pipeline Punch
               </span>
             </h1>
