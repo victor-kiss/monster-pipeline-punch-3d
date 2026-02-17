@@ -5,6 +5,18 @@
 
 Uma landing page imersiva e de alta performance desenvolvida para proporcionar uma experiência visual interativa em torno do energético **Monster Pipeline Punch**. O projeto utiliza tecnologias de ponta em renderização 3D web para criar uma vitrine digital realista.
 
+---
+
+## 📝 O Desafio das 10 Horas
+
+Este projeto foi o resultado de um **desafio pessoal de Carnaval**: realizar o redesign completo e a implementação técnica desta página em apenas **10 horas**, partindo do zero. 
+
+Eu detalhei todo o processo de decisão, as escolhas da stack e como superei os desafios de performance (como a gestão de memória da GPU e o comportamento do scroll no mobile) em um post no LinkedIn.
+
+**Quer saber mais sobre os bastidores desse sprint?** 👉 [**Confira o post completo no LinkedIn e deixe seu feedback!**]( https://www.linkedin.com/posts/victor-kiss_nextjs-threejs-webgraphics-activity-7429250043427274752-nHzz?utm_source=share&utm_medium=member_ios&rcm=ACoAAC4CIrIBVP9FiboYaZB6dpYNGQ8ys_5hoUA) *(Substitua este link pelo link do seu post quando publicar)*
+
+---
+
 ## ✨ Destaques do Projeto
 
 * **Experiência 3D Interativa:** Modelo 3D da lata de Monster com materiais metálicos realistas, reflexos de ambiente e interatividade fluida.
