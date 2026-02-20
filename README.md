@@ -13,7 +13,7 @@ Este projeto foi o resultado de um **desafio pessoal de Carnaval**: realizar o r
 
 Eu detalhei todo o processo de decisão, as escolhas da stack e como superei os desafios de performance (como a gestão de memória da GPU e o comportamento do scroll no mobile) em um post no LinkedIn.
 
-**Quer saber mais sobre os bastidores desse sprint?** 👉 [**Confira o post completo no LinkedIn e deixe seu feedback!**]( https://www.linkedin.com/posts/victor-kiss_nextjs-threejs-webgraphics-activity-7429250043427274752-nHzz?utm_source=share&utm_medium=member_ios&rcm=ACoAAC4CIrIBVP9FiboYaZB6dpYNGQ8ys_5hoUA) *(Substitua este link pelo link do seu post quando publicar)*
+**Quer saber mais sobre os bastidores desse sprint?** 
 
 ---
 
