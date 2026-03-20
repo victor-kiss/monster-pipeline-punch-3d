@@ -7,6 +7,7 @@
   
 **Engenharia Front-end Avançada: Unindo renderização WebGL de alta performance com interfaces imersivas no ecossistema Next.js.**
 
+[![Acessar Experiência](https://img.shields.io/badge/Acessar_Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://monster-pipeline-punch-3d.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-15_(App_Router)-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 [![React Three Fiber](https://img.shields.io/badge/React_Three_Fiber-v8-000000?style=for-the-badge&logo=threedotjs&logoColor=white)](https://r3f.docs.pmnd.rs/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
