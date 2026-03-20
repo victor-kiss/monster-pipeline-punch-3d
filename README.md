@@ -3,73 +3,119 @@
 
 ![Banner do Projeto](./public/thumb.png)
 
-Uma landing page imersiva e de alta performance desenvolvida para proporcionar uma experiência visual interativa em torno do energético **Monster Pipeline Punch**. O projeto utiliza tecnologias de ponta em renderização 3D web para criar uma vitrine digital realista.
+
+  
+**Engenharia Front-end Avançada: Unindo renderização WebGL de alta performance com interfaces imersivas no ecossistema Next.js.**
+
+[![Next.js](https://img.shields.io/badge/Next.js-15_(App_Router)-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
+[![React Three Fiber](https://img.shields.io/badge/React_Three_Fiber-v8-000000?style=for-the-badge&logo=threedotjs&logoColor=white)](https://r3f.docs.pmnd.rs/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-UI-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+
+
 
 ---
 
-## 📝 O Desafio das 10 Horas
+## 📖 Visão Arquitetural
 
-Este projeto foi o resultado de um **desafio pessoal de Carnaval**: realizar o redesign completo e a implementação técnica desta página em apenas **10 horas**, partindo do zero. 
+O **Monster Pipeline Punch 3D** não é apenas uma landing page; é uma prova de conceito focada na integração fluida entre o **DOM tradicional** e o **Canvas WebGL**. O projeto explora os limites da renderização em tempo real no navegador, utilizando o ecossistema React para orquestrar gráficos 3D fotorrealistas sem comprometer as métricas do Core Web Vitals (LCP, FID, CLS).
 
-Eu detalhei todo o processo de decisão, as escolhas da stack e como superei os desafios de performance (como a gestão de memória da GPU e o comportamento do scroll no mobile) em um post no LinkedIn.
+Construído sob a pressão de um **sprint de 10 horas**, este repositório demonstra a capacidade de tomar decisões arquiteturais rápidas voltadas para performance, gestão de memória e UX mobile-first em cenários 3D complexos.
 
-**Quer saber mais sobre os bastidores desse sprint?** 
+## 🚀 Tecnologias e Paradigmas
 
----
+O stack foi selecionado para garantir a melhor sinergia entre ferramentas de ponta:
 
-## ✨ Destaques do Projeto
-
-* **Experiência 3D Interativa:** Modelo 3D da lata de Monster com materiais metálicos realistas, reflexos de ambiente e interatividade fluida.
-* **Performance Otimizada:** Uso de compressão **Draco** e `gltfjsx --transform` para garantir carregamento ultra-rápido do modelo.
-* **Scroll Amigável:** Implementação de `PresentationControls` que permite girar o produto sem interferir na rolagem vertical em dispositivos móveis.
-* **UI Dinâmica:** Animações de interface e backgrounds flutuantes desenvolvidos com Framer Motion.
-* **Responsividade:** Design adaptável que mantém a imersão tanto em desktops quanto em smartphones.
-
-## 🛠️ Tecnologias Utilizadas
-
-* **[Next.js 15](https://nextjs.org/):** Framework React para aplicações web de alto desempenho.
-* **[React Three Fiber](https://r3f.docs.pmnd.rs/):** Renderer Three.js focado em componentes React.
-* **[React Three Drei](https://github.com/pmndrs/drei):** Coleção de utilitários auxiliares para Three.js.
-* **[Tailwind CSS](https://tailwindcss.com/):** Estilização baseada em utilitários para design ágil.
-* **[Framer Motion](https://www.framer.com/motion/):** Biblioteca para animações complexas e gestos.
-
-## 🚀 Desafios Técnicos Superados
-
-1. **Otimização WebGL:** Ajuste de `DPR` (Device Pixel Ratio) para evitar sobrecarga de GPU em telas de alta densidade (Retina).
-2. **Gestão de Contexto:** Prevenção do erro `Context Lost` através do gerenciamento eficiente de memória e recursos do navegador.
-3. **HMR & Dev Server:** Configuração de `allowedDevOrigins` para permitir testes em tempo real via rede local em dispositivos móveis.
-
-## 📦 Instalação e Execução
-
-Para rodar este projeto localmente, siga os passos abaixo:
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/victor-kiss/monster-pipeline-punch-3d.git
-
-```
-
-
-2. Instale as dependências:
-```bash
-npm install
-
-```
-
-
-3. Execute o servidor de desenvolvimento:
-```bash
-npm run dev
-
-```
-
-
-4. Acesse `http://localhost:3000` no seu navegador.
+* **Core:** Next.js 15 operando com o paradigma de Server Components e Client Components (para hidratação do Canvas).
+* **WebGL Pipeline:** React Three Fiber (R3F) para construção declarativa da cena, acoplado à biblioteca `drei` para abstração de controles complexos de câmera e ambiente.
+* **State & Animation Sync:** Framer Motion guiando o DOM, sincronizado indiretamente com as interações de drag e rotação do modelo 3D.
+* **Styling:** Tailwind CSS para uma arquitetura CSS utility-first, garantindo baixo overhead no bundle final.
 
 ---
 
-## 📄 Licença
+## ⚡ Engenharia de Performance & WebGL Otimizado
 
-Este projeto é apenas para fins de portfólio e estudo. A marca **Monster Energy** e o design do produto pertencem à [Monster Energy Company](https://www.monsterenergy.com/).
+Trabalhar com 3D no client-side exige um controle rigoroso sobre a GPU e o Main Thread. As seguintes estratégias nível sênior foram implementadas:
 
-Desenvolvido com ⚡ por [Victor Kiss](https://www.google.com/search?q=https://github.com/victor-kiss)
+### 1. Otimização Agressiva de Geometria e Texturas
+Modelos 3D crus (GLTF/GLB) são pesados e bloqueiam a thread de renderização. Para resolver isso:
+* **Compressão Draco:** Utilizada para reduzir drasticamente o tamanho do buffer de geometria (payload reduction), acelerando o *Time to Interactive* (TTI).
+* **Transformação Offline:** Aplicação do `gltfjsx --transform` no pipeline de build para otimizar a estrutura do grafo de cena (Scene Graph), unindo meshes (instancing) e descartando nós invisíveis.
+
+### 2. Gestão de Memória e Resolução Dinâmica (DPR)
+O gargalo mais comum em WebGL mobile é o *fill rate* da GPU e a memória de vídeo (VRAM).
+* **DPR Clamping:** Implementação de um teto de escala de resolução (`dpr={[1, 1.5]}`) em vez do padrão `window.devicePixelRatio`. Isso previne que telas Retina de smartphones tentem renderizar o Canvas em resoluções absurdas (como 3x ou 4x), o que causaria thermal throttling, queda vertiginosa de FPS e drenagem de bateria.
+* **Prevenção de `Context Lost`:** Gerenciamento meticuloso do ciclo de vida dos materiais e texturas (dispose manual ou via hooks do R3F) para evitar o crash da API WebGL por falta de memória em sessões longas.
+
+### 3. Resolução de Conflitos de Eventos (Scroll vs. Orbit)
+O maior desafio de UX em interfaces "scroll-telling" com 3D:
+* **PresentationControls vs. OrbitControls:** Em vez do tradicional Orbit, que "sequestra" eventos de toque (TouchEvents) impossibilitando o scroll vertical no mobile, foi utilizado o `PresentationControls`. Ele permite a rotação (yaw/pitch) da malha do produto com retorno elástico (spring physics), mantendo o fluxo natural do DOM perfeitamente intacto.
+
+---
+
+## 🧩 Estrutura de Diretórios Inferida
+
+A separação de responsabilidades (SoC) é vital para escalar projetos híbridos (DOM + Canvas):
+
+```text
+📦 monster-pipeline-punch-3d
+├── 📂 app/
+│   ├── 📂 components/
+│   │   ├── 📂 canvas/        # Componentes R3F (Modelos, Luzes, Câmera, Environment)
+│   │   │   ├── MonsterCan.tsx
+│   │   │   └── Scene.tsx
+│   │   ├── 📂 dom/           # Componentes React tradicionais (HTML/Framer Motion)
+│   │   │   ├── HeroInfo.tsx
+│   │   │   └── OverlayUI.tsx
+│   ├── 📜 layout.tsx         # Next.js Root Layout (Server-side)
+│   └── 📜 page.tsx           # Ponto de injeção unindo Canvas e DOM
+├── 📂 public/
+│   ├── 📂 models/            # Arquivos .glb comprimidos (Draco)
+│   └── 📂 textures/          # Mapas HDRI ou texturas PBR auxiliares
+├── 📜 tailwind.config.ts     # Design system (Tipografia, Cores Monster)
+└── 📜 next.config.ts         # Configurações de transpile e devOrigins
+````
+
+-----
+
+## ⚙️ Workflow de Desenvolvimento
+
+### Requisitos do Sistema
+
+  * Node.js (v18.17.0+)
+  * Navegador com suporte moderno a WebGL 2.0.
+
+### Setup Rápido
+
+1.  **Clonagem e Instalação:**
+
+    ```bash
+    git clone [https://github.com/victor-kiss/monster-pipeline-punch-3d.git](https://github.com/victor-kiss/monster-pipeline-punch-3d.git)
+    cd monster-pipeline-punch-3d
+    npm install
+    ```
+
+2.  **Iniciando o Dev Server:**
+
+    ```bash
+    npm run dev
+    ```
+
+    > **Dica de Debug Mobile:** Para testar a performance do WebGL diretamente no seu smartphone durante o desenvolvimento local, o Next.js está configurado com `allowedDevOrigins`. Conecte o dispositivo na mesma rede Wi-Fi e acesse o IP local exposto no terminal.
+
+-----
+
+## ⚖️ Disclaimer Legal e Propriedade Intelectual
+
+Este projeto tem fins estritamente **educacionais e de demonstração de proficiência técnica (portfólio)**.
+Não possui nenhum vínculo comercial, patrocínio ou afiliação com a **Monster Energy Company**. Todo o design gráfico das embalagens, marcas registradas e logotipos são propriedades exclusivas de seus respectivos donos.
+
+-----
+
+## 👨‍💻 O Arquiteto por Trás do Código
+
+**Victor Kiss**
+Desenvolvedor Front-end com foco em UI/UX e Criação de Experiências Digitais.
+
+[Linkedin](https://www.google.com/search?q=https://www.linkedin.com/in/victor-kiss/)
+[GitHub](https://www.google.com/search?q=https://github.com/victor-kiss)
